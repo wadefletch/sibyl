@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.message {
+  @apply space-y-2;
+
+  ul {
+    @apply space-y-2;
+  }
+
+  ul:not(.contains-task-list) {
+    @apply ml-6 list-disc;
+  }
+
+  ul.contains-task-list {
+    @apply ml-2 list-none;
+
+    input[type='checkbox'] {
+      @apply mr-2;
+    }
+  }
+
+  ol {
+    @apply ml-6 list-decimal space-y-2;
+  }
+
+  a {
+    @apply text-emerald-300 underline;
+  }
+
+  code {
+    @apply rounded bg-zinc-200 px-1 py-0.5 font-mono dark:bg-zinc-700;
+  }
+
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
+  }
+
+  blockquote {
+    @apply border-l-2 border-emerald-300 border-opacity-50 p-4 dark:bg-zinc-800;
+  }
+
+  hr {
+    @apply border-t border-zinc-600;
+  }
+
+  table {
+    @apply border-collapse overflow-hidden rounded;
+  }
+
+  tr {
+    @apply divide-x divide-zinc-600 bg-zinc-100 dark:bg-zinc-800;
+  }
+
+  th {
+    @apply bg-zinc-600 p-2 font-bold text-white;
+  }
+
+  td {
+    @apply border-t border-zinc-600 p-2;
+  }
+
+  img {
+    @apply h-auto max-h-[500px] w-auto max-w-full;
+  }
+}
