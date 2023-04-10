@@ -19,11 +19,6 @@ type ConfigContext = {
   setConfig: Dispatch<SetStateAction<Config>>;
 };
 
-/* {
-  apiKey: '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',
-  model: 'gpt-3.5-turbo',
-} */
-
 const initialConfig: Config = {
   apiKey: '',
   model: 'gpt-3.5-turbo',
