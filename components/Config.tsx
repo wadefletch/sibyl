@@ -9,12 +9,15 @@ function Config() {
         Config
       </h2>
 
-      <label htmlFor="apiKey" className="m-3 space-y-2">
+      <label
+        htmlFor="apiKey"
+        className="space-y-2 border-b p-3 dark:border-zinc-600"
+      >
         <p className="block font-semibold">OpenAI API key</p>
         <p className="text-xs dark:text-zinc-300">
           You can find your API key in the{' '}
           <a
-            href="https://beta.openai.com/account/api-keys"
+            href="https://platform.openai.com/account/api-keys"
             target="_blank"
             rel="noreferrer"
             className="underline"
@@ -37,7 +40,7 @@ function Config() {
         <p className="text-xs dark:text-zinc-300">
           The model to use for chat completions. Find available models in the{' '}
           <a
-            href="https://beta.openai.com/docs/developer-quickstart/model-versions"
+            href="https://platform.openai.com/docs/models/model-endpoint-compatibility"
             target="_blank"
             rel="noreferrer"
             className="underline"
