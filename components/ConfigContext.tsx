@@ -35,6 +35,17 @@ function loadConfig() {
       window.localStorage.getItem(LOCALSTORAGE_CONFIG_NAME) || '{}'
     );
 
+    Object.keys(initialConfig).forEach((key) => {
+      const keyInInitialConfig = Object.keys(initialConfig).includes(key);
+      const keyInLocalStorageConfig =
+        Object.keys(localStorageConfig).includes(key) &&
+        localStorageConfig[key] != undefined &&
+        localStorageConfig[key] != '';
+      if (keyInInitialConfig && !keyInLocalStorageConfig) {
+        localStorageConfig[key] = initialConfig[key as keyof Config];
+      }
+    });
+
     if (Object.keys(localStorageConfig).length > 0) {
       return localStorageConfig;
     }
