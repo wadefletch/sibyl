@@ -89,7 +89,7 @@ function Chat() {
   }, [cookie, setCookie]);
 
   return (
-    <div className="relative flex h-full max-w-2xl flex-1 flex-col border dark:divide-zinc-700 dark:border-zinc-700">
+    <div className="relative flex h-full max-w-4xl flex-1 flex-col border dark:divide-zinc-700 dark:border-zinc-700">
       <div
         id="messages"
         className="flex-1 overflow-y-auto dark:[color-scheme:dark]"
