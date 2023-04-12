@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
+import { memo } from 'react';
 
 import 'katex/dist/katex.min.css';
 
@@ -55,4 +56,6 @@ function ChatMessage({ role, content }: ChatMessageProps) {
   );
 }
 
-export default ChatMessage;
+const MemoizedChatMessage = memo(ChatMessage);
+
+export default MemoizedChatMessage;

@@ -12,7 +12,8 @@ function Chat() {
   const [messages, setMessages] = useState<ChatGPTMessage[]>([]);
   const [input, setInput] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [cookie, setCookie] = useCookies([COOKIE_NAME]);
   const { config } = useConfig();
 
   async function sendMessage(message: string) {
@@ -71,11 +72,8 @@ function Chat() {
     }
 
     setLoading(false);
+    return;
   }
-
-  const [cookie, setCookie] = useCookies([COOKIE_NAME]);
-
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!messagesEndRef.current) return;

@@ -12,16 +12,21 @@ const LOCALSTORAGE_CONFIG_NAME = 'sibyl-config';
 export type Config = {
   apiKey: string;
   model: string;
+  temperature: number;
+  maxTokens: number;
 };
 
 type ConfigContext = {
   config: Config;
   setConfig: Dispatch<SetStateAction<Config>>;
+  lastSaved: Date | null;
 };
 
 const initialConfig: Config = {
   apiKey: '',
   model: 'gpt-3.5-turbo',
+  temperature: 0.9,
+  maxTokens: 500,
 };
 
 function loadConfig() {
@@ -41,6 +46,7 @@ function loadConfig() {
 const ConfigContext = createContext<ConfigContext>({
   config: initialConfig,
   setConfig: () => {},
+  lastSaved: null,
 });
 
 interface ConfigProviderProps {
@@ -49,13 +55,15 @@ interface ConfigProviderProps {
 
 export function ConfigProvider({ children }: ConfigProviderProps) {
   const [config, setConfig] = useState(loadConfig());
+  const [lastSaved, setLastSaved] = useState<Date | null>(null);
 
   useEffect(() => {
     localStorage.setItem(LOCALSTORAGE_CONFIG_NAME, JSON.stringify(config));
+    setLastSaved(new Date());
   }, [config]);
 
   return (
-    <ConfigContext.Provider value={{ config, setConfig }}>
+    <ConfigContext.Provider value={{ config, setConfig, lastSaved }}>
       {children}
     </ConfigContext.Provider>
   );
