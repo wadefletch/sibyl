@@ -79,11 +79,18 @@ function Config() {
       </label>
 
       <label htmlFor="maxTokens" className="m-3 space-y-2">
-        <p className="block font-bold">Max tokens</p>
+        <p className="block font-bold">Max Tokens</p>
         <p className="text-xs dark:text-zinc-300">
-          The maximum number of tokens to generate. The API will stop generating
-          tokens when it reaches this number or when it reaches the end of its
-          response, whichever comes first.
+          The maximum number of{' '}
+          <a
+            className="underline"
+            href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them"
+          >
+            tokens
+          </a>{' '}
+          to generate. The API will stop generating tokens when it reaches this
+          number or when it reaches the end of its response, whichever comes
+          first.
         </p>
         <input
           id="maxTokens"
@@ -96,7 +103,9 @@ function Config() {
         />
       </label>
 
-      <div className="flex-1" />
+      <div className="m-3 grid flex-1 place-content-center bg-zinc-50 p-3 text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
+        More options coming soon!
+      </div>
 
       <div className="flex justify-between border-t p-3 text-sm text-zinc-400 dark:border-zinc-600">
         <p className="font-semibold uppercase">Last Saved</p>
