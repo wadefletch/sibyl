@@ -15,14 +15,14 @@ function Config() {
       >
         <p className="block font-semibold">OpenAI API key</p>
         <p className="text-xs dark:text-zinc-300">
-          You can find your API key in the{' '}
+          You can find your API key in{' '}
           <a
             href="https://platform.openai.com/account/api-keys"
             target="_blank"
             rel="noreferrer"
             className="underline"
           >
-            OpenAI Dashboard
+            your OpenAI Account Settings
           </a>
           .
         </p>
