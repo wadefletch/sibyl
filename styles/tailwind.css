@@ -29,8 +29,14 @@
     @apply text-emerald-300 underline;
   }
 
-  code {
-    @apply rounded bg-zinc-200 px-1 py-0.5 font-mono dark:bg-zinc-700;
+  :not(pre) > code {
+    /* Inline Code */
+    @apply rounded bg-zinc-200 px-1 py-0.5 font-mono dark:bg-zinc-800;
+  }
+
+  pre > code {
+    /* Code Blocks */
+    @apply inline-block rounded bg-zinc-200 p-3 font-mono dark:bg-zinc-800;
   }
 
   h1 {
