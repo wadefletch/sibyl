@@ -16,7 +16,7 @@ function Chat() {
   const [cookie, setCookie] = useCookies([COOKIE_NAME]);
   const { config } = useConfig();
 
-  async function sendMessage(message: string) {
+  const sendMessage = async (message: string) => {
     setLoading(true);
     const newMessages = [
       ...messages,
@@ -73,12 +73,12 @@ function Chat() {
 
     setLoading(false);
     return;
-  }
+  };
 
   useEffect(() => {
     if (!messagesEndRef.current) return;
     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, messagesEndRef]);
+  }, [messages, messagesEndRef, input]);
 
   useEffect(() => {
     if (!cookie[COOKIE_NAME]) {
@@ -89,10 +89,10 @@ function Chat() {
   }, [cookie, setCookie]);
 
   return (
-    <div className="relative flex h-full max-w-4xl flex-1 flex-col border dark:divide-zinc-700 dark:border-zinc-700">
+    <div className="flex max-w-4xl flex-1 flex-col dark:divide-zinc-700">
       <div
         id="messages"
-        className="flex-1 overflow-y-auto dark:[color-scheme:dark]"
+        className="flex-1 overflow-y-auto border dark:border-zinc-700 dark:[color-scheme:dark]"
       >
         {messages.map((message, index) => {
           return <ChatMessage key={index} {...message} />;
@@ -107,12 +107,15 @@ function Chat() {
       <ChatInput
         value={input}
         autoComplete="off"
-        className="inline-block w-full border-t p-3 text-xl focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-400"
+        className="mt-4 inline-block w-full border p-3 text-xl focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-400"
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' && input.length > 0) {
-            sendMessage(input);
-            setInput('');
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            if (input.length > 0) {
+              sendMessage(input);
+              setInput('');
+            }
           }
         }}
       />

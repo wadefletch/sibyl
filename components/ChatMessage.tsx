@@ -39,7 +39,7 @@ function ChatMessage({ role, content }: ChatMessageProps) {
         {name[role]}
       </p>
       {role === 'user' ? (
-        content
+        <p className="whitespace-pre-wrap">{content}</p>
       ) : (
         <ReactMarkdown
           remarkPlugins={[remarkMath, remarkGfm]}

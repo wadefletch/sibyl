@@ -9,7 +9,7 @@ function ChatPage() {
       <Head>
         <title>Sibyl</title>
       </Head>
-      <div className="flex h-screen flex-col overflow-hidden overscroll-y-none p-10 antialiased dark:bg-zinc-900 dark:text-zinc-100 md:flex-row">
+      <div className="flex h-screen w-screen flex-col p-10 antialiased dark:bg-zinc-900 dark:text-zinc-100 md:flex-row">
         <Chat />
         <Config />
       </div>
