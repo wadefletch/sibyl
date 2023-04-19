@@ -103,9 +103,7 @@ function Config() {
         />
       </label>
 
-      <div className="m-3 grid flex-1 place-content-center bg-zinc-50 p-3 text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
-        More options coming soon!
-      </div>
+      <div className="flex-1" />
 
       <div className="flex justify-between border-t p-3 text-sm text-zinc-400 dark:border-zinc-600">
         <p className="font-semibold uppercase">Last Saved</p>
