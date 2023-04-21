@@ -77,7 +77,7 @@ function Chat() {
 
   useEffect(() => {
     if (!messagesEndRef.current) return;
-    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current.scrollIntoView({ behavior: 'instant' });
   }, [messages, messagesEndRef, input]);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ function Chat() {
   }, [cookie, setCookie]);
 
   return (
-    <div className="flex max-w-4xl flex-1 flex-col dark:divide-zinc-700">
+    <div className="relative flex max-w-4xl flex-1 flex-col dark:divide-zinc-700">
       <div
         id="messages"
         className="flex-1 overflow-y-auto border dark:border-zinc-700 dark:[color-scheme:dark]"
