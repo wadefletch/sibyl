@@ -36,7 +36,7 @@
 
   pre > code {
     /* Code Blocks */
-    @apply inline-block rounded bg-zinc-200 p-3 font-mono dark:bg-zinc-800;
+    @apply inline-block w-full overflow-x-auto rounded bg-zinc-200 p-3 font-mono dark:bg-zinc-800;
   }
 
   h1 {
